@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_76ad5e1e35dff3927698072f3eea6e00 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+    /* This is the key part that makes it float */
+    position: fixed; 
+    top: 10px;      /* Adjust distance from top */
+    right: 10px;    /* Adjust distance from right */
+
+    /* The rest is styling */
+    width: 150px;
+    border:2px solid grey;
+    z-index:9999;
+    font-size:14px;
+    background-color: white;
+    padding-left: 10px;
+    ">
+    <b>Crime Level</b><br>
+<i style="background:#D50000; opacity: 0.7; width:20px; height:10px; display:inline-block; border: 1px solid grey;"></i> &nbsp; Extreme<br><i style="background:#C62828; opacity: 0.7; width:20px; height:10px; display:inline-block; border: 1px solid grey;"></i> &nbsp; Very High<br><i style="background:#F4511E; opacity: 0.7; width:20px; height:10px; display:inline-block; border: 1px solid grey;"></i> &nbsp; High<br><i style="background:#FFB74D; opacity: 0.7; width:20px; height:10px; display:inline-block; border: 1px solid grey;"></i> &nbsp; Moderate<br><i style="background:#5EABFC; opacity: 0.7; width:20px; height:10px; display:inline-block; border: 1px solid grey;"></i> &nbsp; Low<br><i style="background:#76C893; opacity: 0.7; width:20px; height:10px; display:inline-block; border: 1px solid grey;"></i> &nbsp; Very Low<br></div>
+    
+            <div class="folium-map" id="map_76ad5e1e35dff3927698072f3eea6e00" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_76ad5e1e35dff3927698072f3eea6e00 = L.map(
+                "map_76ad5e1e35dff3927698072f3eea6e00",
+                {
+                    center: [34.0522, -118.2437],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0a508937f67c24ec0a72fc6d48941106 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0a508937f67c24ec0a72fc6d48941106.addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+            var circle_959487d76f756d4990eb833fd9f54b44 = L.circle(
+                [34.0661255844949, -118.27260198538139],
+                {"bubblingMouseEvents": true, "color": "#D50000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D50000", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_ada54b30370225bbc12155a5e21576ae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_db6f3eba9f909d354f5929a1a88f070c = $(`<div id="html_db6f3eba9f909d354f5929a1a88f070c" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 1</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Extreme</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">260431</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">1,613,754</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">6,679.22 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_ada54b30370225bbc12155a5e21576ae.setContent(html_db6f3eba9f909d354f5929a1a88f070c);
+            
+        
+
+        circle_959487d76f756d4990eb833fd9f54b44.bindPopup(popup_ada54b30370225bbc12155a5e21576ae)
+        ;
+
+        
+    
+    
+            var circle_d0d8bf48d313ee58b1c93d51440bba61 = L.circle(
+                [34.0661255844949, -118.27260198538139],
+                {"bubblingMouseEvents": true, "color": "#D50000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D50000", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2200, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_d849a42e951e9087a1ec0d84304627b7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b8503213c9c63a015de5ccf8138bdc5c = $(`<div id="html_b8503213c9c63a015de5ccf8138bdc5c" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 1</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Extreme</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">260431</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">1,613,754</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">6,679.22 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_d849a42e951e9087a1ec0d84304627b7.setContent(html_b8503213c9c63a015de5ccf8138bdc5c);
+            
+        
+
+        circle_d0d8bf48d313ee58b1c93d51440bba61.bindPopup(popup_d849a42e951e9087a1ec0d84304627b7)
+        ;
+
+        
+    
+    
+            var circle_9ef259a5cbed501fdf152816d1099a28 = L.circle(
+                [34.0661255844949, -118.27260198538139],
+                {"bubblingMouseEvents": true, "color": "#D50000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D50000", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 900, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_e3a5c5b062f4593faabf4caf27926c17 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9a9ba4f6e9df6bab1d553b8002f61632 = $(`<div id="html_9a9ba4f6e9df6bab1d553b8002f61632" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 1</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Extreme</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">260431</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">1,613,754</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">6,679.22 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_e3a5c5b062f4593faabf4caf27926c17.setContent(html_9a9ba4f6e9df6bab1d553b8002f61632);
+            
+        
+
+        circle_9ef259a5cbed501fdf152816d1099a28.bindPopup(popup_e3a5c5b062f4593faabf4caf27926c17)
+        ;
+
+        
+    
+    
+            var circle_b49d028b6a9d4fd4107a95a5703aa4d2 = L.circle(
+                [33.771832383535425, -118.28526808232292],
+                {"bubblingMouseEvents": true, "color": "#C62828", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C62828", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_dc3c07846b5dd5ad8420cfa09bb7a1d7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_35664e6d85a6e287d51b055aa98016e5 = $(`<div id="html_35664e6d85a6e287d51b055aa98016e5" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 2</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Very High</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">31340</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">798,056</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">6,016.54 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_dc3c07846b5dd5ad8420cfa09bb7a1d7.setContent(html_35664e6d85a6e287d51b055aa98016e5);
+            
+        
+
+        circle_b49d028b6a9d4fd4107a95a5703aa4d2.bindPopup(popup_dc3c07846b5dd5ad8420cfa09bb7a1d7)
+        ;
+
+        
+    
+    
+            var circle_83600d1d7dcf78af8e4b5a016c93088e = L.circle(
+                [33.771832383535425, -118.28526808232292],
+                {"bubblingMouseEvents": true, "color": "#C62828", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C62828", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2200, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_7e1b457b1b83e71942f0d800aa5c9015 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ca077df50e7a63dc0aabe463bfb653a9 = $(`<div id="html_ca077df50e7a63dc0aabe463bfb653a9" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 2</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Very High</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">31340</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">798,056</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">6,016.54 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_7e1b457b1b83e71942f0d800aa5c9015.setContent(html_ca077df50e7a63dc0aabe463bfb653a9);
+            
+        
+
+        circle_83600d1d7dcf78af8e4b5a016c93088e.bindPopup(popup_7e1b457b1b83e71942f0d800aa5c9015)
+        ;
+
+        
+    
+    
+            var circle_9adf92012b2d4cf0442f63e3e0569e7b = L.circle(
+                [33.771832383535425, -118.28526808232292],
+                {"bubblingMouseEvents": true, "color": "#C62828", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C62828", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 900, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_308e617c906d688dc0268eab731abbfe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0a3dafe25dce23e7ed091255c0ae7370 = $(`<div id="html_0a3dafe25dce23e7ed091255c0ae7370" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 2</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Very High</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">31340</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">798,056</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">6,016.54 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_308e617c906d688dc0268eab731abbfe.setContent(html_0a3dafe25dce23e7ed091255c0ae7370);
+            
+        
+
+        circle_9adf92012b2d4cf0442f63e3e0569e7b.bindPopup(popup_308e617c906d688dc0268eab731abbfe)
+        ;
+
+        
+    
+    
+            var circle_3000f647f6429d3c6beb5896e117b98d = L.circle(
+                [33.97533742988428, -118.28388759278327],
+                {"bubblingMouseEvents": true, "color": "#F4511E", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#F4511E", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_f19389a6d5387ccdebd3d309157e3cc0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e357ce4edd709440a48fc4de0b190fdb = $(`<div id="html_e357ce4edd709440a48fc4de0b190fdb" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 3</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">High</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">130142</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">844,284</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">5,188.71 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_f19389a6d5387ccdebd3d309157e3cc0.setContent(html_e357ce4edd709440a48fc4de0b190fdb);
+            
+        
+
+        circle_3000f647f6429d3c6beb5896e117b98d.bindPopup(popup_f19389a6d5387ccdebd3d309157e3cc0)
+        ;
+
+        
+    
+    
+            var circle_2bf78c4b79eb947ab1abba3eed735031 = L.circle(
+                [33.97533742988428, -118.28388759278327],
+                {"bubblingMouseEvents": true, "color": "#F4511E", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#F4511E", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2200, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_b0cb97d3d3b1f27f01b927be988c3d5d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ddb9dc34cc558dd3b0884d7fc3b948eb = $(`<div id="html_ddb9dc34cc558dd3b0884d7fc3b948eb" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 3</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">High</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">130142</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">844,284</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">5,188.71 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_b0cb97d3d3b1f27f01b927be988c3d5d.setContent(html_ddb9dc34cc558dd3b0884d7fc3b948eb);
+            
+        
+
+        circle_2bf78c4b79eb947ab1abba3eed735031.bindPopup(popup_b0cb97d3d3b1f27f01b927be988c3d5d)
+        ;
+
+        
+    
+    
+            var circle_e812abe5d1df161a306dd333338d16f2 = L.circle(
+                [33.97533742988428, -118.28388759278327],
+                {"bubblingMouseEvents": true, "color": "#F4511E", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#F4511E", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 900, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_8eb415f776aa482ca8a8b1f60829d296 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cf448027f0e585ee072a51a9cfbab85b = $(`<div id="html_cf448027f0e585ee072a51a9cfbab85b" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 3</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">High</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">130142</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">844,284</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">5,188.71 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_8eb415f776aa482ca8a8b1f60829d296.setContent(html_cf448027f0e585ee072a51a9cfbab85b);
+            
+        
+
+        circle_e812abe5d1df161a306dd333338d16f2.bindPopup(popup_8eb415f776aa482ca8a8b1f60829d296)
+        ;
+
+        
+    
+    
+            var circle_a53e9e771fb736e05be1ace4fcfcd610 = L.circle(
+                [34.02627334254984, -118.40806447904983],
+                {"bubblingMouseEvents": true, "color": "#FFB74D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFB74D", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_fb80fa7bbe4d05c8ce38c32450579a2d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e103d1f7d7e1a979bbe37226e153b49f = $(`<div id="html_e103d1f7d7e1a979bbe37226e153b49f" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 4</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Moderate</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">115012</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">675,218</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">2,138.56 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_fb80fa7bbe4d05c8ce38c32450579a2d.setContent(html_e103d1f7d7e1a979bbe37226e153b49f);
+            
+        
+
+        circle_a53e9e771fb736e05be1ace4fcfcd610.bindPopup(popup_fb80fa7bbe4d05c8ce38c32450579a2d)
+        ;
+
+        
+    
+    
+            var circle_4f1b119e5ff7cab78b2467be58428602 = L.circle(
+                [34.02627334254984, -118.40806447904983],
+                {"bubblingMouseEvents": true, "color": "#FFB74D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFB74D", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2200, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_ff0af9f336f5e359ff92ad0f869210fb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_573eff4f064469315f2930323471e421 = $(`<div id="html_573eff4f064469315f2930323471e421" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 4</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Moderate</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">115012</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">675,218</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">2,138.56 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_ff0af9f336f5e359ff92ad0f869210fb.setContent(html_573eff4f064469315f2930323471e421);
+            
+        
+
+        circle_4f1b119e5ff7cab78b2467be58428602.bindPopup(popup_ff0af9f336f5e359ff92ad0f869210fb)
+        ;
+
+        
+    
+    
+            var circle_cfe09069be5836d213b8306c1c8da538 = L.circle(
+                [34.02627334254984, -118.40806447904983],
+                {"bubblingMouseEvents": true, "color": "#FFB74D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFB74D", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 900, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_abc509016f23ddf95afd568bf0eee68d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ef735342fc811ab37351b09b994b8f66 = $(`<div id="html_ef735342fc811ab37351b09b994b8f66" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 4</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Moderate</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">115012</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">675,218</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">2,138.56 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_abc509016f23ddf95afd568bf0eee68d.setContent(html_ef735342fc811ab37351b09b994b8f66);
+            
+        
+
+        circle_cfe09069be5836d213b8306c1c8da538.bindPopup(popup_abc509016f23ddf95afd568bf0eee68d)
+        ;
+
+        
+    
+    
+            var circle_1a9877a9c656df61c6a34ad480a85cfe = L.circle(
+                [34.20939298652555, -118.41968720489434],
+                {"bubblingMouseEvents": true, "color": "#5EABFC", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5EABFC", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_81310be48aef0c907704e45024f6b571 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6e549acffbbe2af099fd47e70bfcf8c4 = $(`<div id="html_6e549acffbbe2af099fd47e70bfcf8c4" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 5</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Low</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">133263</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">501,572</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">1,289.35 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_81310be48aef0c907704e45024f6b571.setContent(html_6e549acffbbe2af099fd47e70bfcf8c4);
+            
+        
+
+        circle_1a9877a9c656df61c6a34ad480a85cfe.bindPopup(popup_81310be48aef0c907704e45024f6b571)
+        ;
+
+        
+    
+    
+            var circle_79556f963d5b9e1ec8bba84bd8dcb86d = L.circle(
+                [34.20939298652555, -118.41968720489434],
+                {"bubblingMouseEvents": true, "color": "#5EABFC", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5EABFC", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2200, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_94d1ecce5864fad5b568cf07040c7698 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a7aff05d10211047dc4441c49b3cb675 = $(`<div id="html_a7aff05d10211047dc4441c49b3cb675" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 5</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Low</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">133263</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">501,572</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">1,289.35 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_94d1ecce5864fad5b568cf07040c7698.setContent(html_a7aff05d10211047dc4441c49b3cb675);
+            
+        
+
+        circle_79556f963d5b9e1ec8bba84bd8dcb86d.bindPopup(popup_94d1ecce5864fad5b568cf07040c7698)
+        ;
+
+        
+    
+    
+            var circle_0a4ccd4e526a1a815f91cd2308bd406f = L.circle(
+                [34.20939298652555, -118.41968720489434],
+                {"bubblingMouseEvents": true, "color": "#5EABFC", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#5EABFC", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 900, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_0ca2defd48d4cc7f70a2b607d6f09d98 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dd8a0b547432e8577f7461104dab1d74 = $(`<div id="html_dd8a0b547432e8577f7461104dab1d74" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 5</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Low</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">133263</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">501,572</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">1,289.35 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_0ca2defd48d4cc7f70a2b607d6f09d98.setContent(html_dd8a0b547432e8577f7461104dab1d74);
+            
+        
+
+        circle_0a4ccd4e526a1a815f91cd2308bd406f.bindPopup(popup_0ca2defd48d4cc7f70a2b607d6f09d98)
+        ;
+
+        
+    
+    
+            var circle_230b9a259efed11a5b9c154acf197327 = L.circle(
+                [34.209099784233736, -118.56047800481052],
+                {"bubblingMouseEvents": true, "color": "#76C893", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#76C893", "fillOpacity": 0.3, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_49dc30090d196a36cea604e5b28d8655 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d4b06363101efd8b763c225b2534eccc = $(`<div id="html_d4b06363101efd8b763c225b2534eccc" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 6</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Very Low</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">84687</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">189,642</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">547.83 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_49dc30090d196a36cea604e5b28d8655.setContent(html_d4b06363101efd8b763c225b2534eccc);
+            
+        
+
+        circle_230b9a259efed11a5b9c154acf197327.bindPopup(popup_49dc30090d196a36cea604e5b28d8655)
+        ;
+
+        
+    
+    
+            var circle_205097550bcbbaa10cd51621800791a8 = L.circle(
+                [34.209099784233736, -118.56047800481052],
+                {"bubblingMouseEvents": true, "color": "#76C893", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#76C893", "fillOpacity": 0.4, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2200, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_4f13692dc3248caf687d43a5b22b57a0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7f903ce72d84848b965f5191f72dd7f0 = $(`<div id="html_7f903ce72d84848b965f5191f72dd7f0" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 6</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Very Low</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">84687</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">189,642</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">547.83 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_4f13692dc3248caf687d43a5b22b57a0.setContent(html_7f903ce72d84848b965f5191f72dd7f0);
+            
+        
+
+        circle_205097550bcbbaa10cd51621800791a8.bindPopup(popup_4f13692dc3248caf687d43a5b22b57a0)
+        ;
+
+        
+    
+    
+            var circle_292aa3d3b8a22a8a7285f1d2f71fadf7 = L.circle(
+                [34.209099784233736, -118.56047800481052],
+                {"bubblingMouseEvents": true, "color": "#76C893", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#76C893", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 900, "stroke": false, "weight": 3}
+            ).addTo(map_76ad5e1e35dff3927698072f3eea6e00);
+        
+    
+        var popup_53211375f3f7c719c670a568ae16b439 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f4e7b205086eeba9cc381bd81f7b34b0 = $(`<div id="html_f4e7b205086eeba9cc381bd81f7b34b0" style="width: 100.0%; height: 100.0%;">    <h4 style="margin-bottom:5px; font-family: 'Helvetica Neue', sans-serif;">Hotspot 6</h4>    <table style="width:100%; font-family: 'Helvetica Neue', sans-serif; font-size: 13px;">        <tbody>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Level:</td>                <td style="padding: 2px;">Very Low</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Crime Count:</td>                <td style="padding: 2px;">84687</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Total Severity:</td>                <td style="padding: 2px;">189,642</td>            </tr>            <tr>                <td style="font-weight: bold; padding: 2px;">Density:</td>                <td style="padding: 2px;">547.83 Score/km²</td>            </tr>        </tbody>    </table>    </div>`)[0];
+                popup_53211375f3f7c719c670a568ae16b439.setContent(html_f4e7b205086eeba9cc381bd81f7b34b0);
+            
+        
+
+        circle_292aa3d3b8a22a8a7285f1d2f71fadf7.bindPopup(popup_53211375f3f7c719c670a568ae16b439)
+        ;
+
+        
+    
+</script>
+</html>
