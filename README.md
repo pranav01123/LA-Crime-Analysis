@@ -7,6 +7,10 @@
 <img src="https://img.shields.io/badge/Data-Kaggle-cyan.svg" alt="Data Source">
 </p>
 
+<p align="center">
+  <strong><a href=https://pranav01123.github.io/LA-Crime-Analysis/>🚀 View the Live Interactive Map!</a></strong>
+</p>
+
 📍 Project Overview
 This project performs an in-depth analysis of crime data from the City of Los Angeles (2020-2023) to identify and visualize crime hotspots. Moving beyond simple crime counts, this analysis introduces a crime severity score to weigh different types of crimes based on their seriousness.
 
