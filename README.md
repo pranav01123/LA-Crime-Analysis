@@ -101,7 +101,10 @@ Below is a preview of the final interactive map, showing the concentric ring hot
 
 (Note: Interactive maps do not render in GitHub's file viewer. To see the live map, please see the "Live Demo" section below.)
 
-[Insert a screenshot of your folium map here]
+<img width="1074" height="641" alt="image" src="https://github.com/user-attachments/assets/8617b926-ef28-4fdc-9601-6df47a726ea0" />
+
+<img width="1073" height="641" alt="image" src="https://github.com/user-attachments/assets/e49f58d3-61ff-4799-a5b3-04380beedc2e" />
+
 
 🚀 How to Run the Project
 Prerequisites
